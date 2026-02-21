@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+function App(){
 
-function App() {
+  const [apiStatus, setApiStatus] = useState("Checking...");
+
+  useEffect(() => {
+    const API_URL = process.env.REACT_APP_API_URL || 'https://inventory-app-api-nupk.onrender.com';
+    fetch(`${API_URL}/api/health`)
+    .then(res => res.json())
+    .then(data => setApiStatus(data.message))
+    .catch(err => setApiStatus('Backend not reachable'));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{padding:'20px'}}>
+      <h1>Inventory Management System</h1>
+      <p>Backend Status: {apiStatus}</p>
     </div>
-  );
-}
+  )
 
+}
 export default App;
