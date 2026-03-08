@@ -14,14 +14,4 @@ const sequelize = new Sequelize(
 );
 
 
-const models = {
-    //User: User
-}
-
-Object.values(models).forEach( model => {
-    if(model.associate){
-        model.associate(models);
-    }
-})
-
-module.exports = {sequelize, models};
+module.exports = sequelize;
