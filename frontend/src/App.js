@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './auth/Login';
+import Register from './auth/Register';
 
-const Login = () => <div>Login Page (TBD)</div>;
-const Register = () => <div>Register Page (TBD)</div>;
 const InventoryList = () => <div>Inventory List (TBD)</div>;
 const InventoryDetail = () => <div>Inventory Detail (TBD)</div>;
 const InventoryForm = () => <div>Create Inventory (TBD)</div>;
