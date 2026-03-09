@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import InventoryList from './components/InventoryList';
+import InventoryForm from './components/InventoryForm';
 
 const InventoryDetail = () => <div>Inventory Detail (TBD)</div>;
-const InventoryForm = () => <div>Create Inventory (TBD)</div>;
 
 const PrivateRoute = ({children}) => {
   const {user} = useAuth();
