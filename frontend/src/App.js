@@ -4,8 +4,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import InventoryList from './components/InventoryList';
 
-const InventoryList = () => <div>Inventory List (TBD)</div>;
 const InventoryDetail = () => <div>Inventory Detail (TBD)</div>;
 const InventoryForm = () => <div>Create Inventory (TBD)</div>;
 
