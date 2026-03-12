@@ -76,7 +76,7 @@ const Register = ()=>{
                                 <label htmlFor='confirm-password' className='form-label'>Confirm Password</label>
                                 <input
                                 type='password'
-                                className='form-control'
+                                className='form-control mb-3'
                                 id='confirm-password'
                                 value={confirmPassword}
                                 onChange={(e)=> setConfirmPassword(e.target.value)}
@@ -85,7 +85,7 @@ const Register = ()=>{
                             </div>
                             <button
                             type='submit'
-                            className='btn btn-primary w-100'
+                            className='btn btn-primary w-100 mb-3'
                             disabled={loading}
                             >
                                 {loading ? 'Registering...' : 'Register'}
