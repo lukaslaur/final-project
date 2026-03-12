@@ -8,9 +8,11 @@ const InventoryList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const {user} = useAuth();
+    
     useEffect(() => {
         fetchInventories();
     },[]);
+    
     const fetchInventories = async () => {
         try{
             const response = await getInventories();
@@ -23,6 +25,7 @@ const InventoryList = () => {
             setLoading(false);
         }
     };
+    
     const handleDelete = async (id) => {
         if (!window.confirm('Are you sure you want to delete this inventory?')){
             return;
@@ -35,6 +38,7 @@ const InventoryList = () => {
             console.log(err);
         }
     };
+    
     if (loading){
         return <div className='text-center mt-5'>Loading inventories...</div>;
     }
@@ -43,7 +47,9 @@ const InventoryList = () => {
         <div>
             <div className='d-flex justify-content-between align-items-center mb-4'>
                 <h2>My inventories</h2>
-                <Link to='/inventories/new' className='btn btn-primary'>Create new inventory</Link>
+                {user && (
+                    <Link to='/inventories/new' className='btn btn-primary'>Create new inventory</Link>
+                )}
             </div>
             {error && (<div className='alert alert-info'>{error}</div>)}
             {inventories.length === 0 ? (
@@ -66,18 +72,18 @@ const InventoryList = () => {
                                 <tr key={inventory.id}>
                                     <td>
                                         <Link to={`/inventories/${inventory.id}`}>
-                                                {inventory.title}
+                                            {inventory.title}
                                         </Link> 
-                                        </td>
-                                        <td>{inventory.description || '-'}</td>
-                                        <td>
-                                            <span className='badge bg-secondary'>
-                                                {inventory.category}
-                                            </span>
-                                        </td>
-                                        <td>{inventory.owner?.name || 'Unknown'}</td>
-                                        <td>{new Date (inventory.createdAt).toLocaleDateString()}</td>
-                                        <td>
+                                    </td>
+                                    <td>{inventory.description || '-'}</td>
+                                    <td>
+                                        <span className='badge bg-secondary'>
+                                            {inventory.category}
+                                        </span>
+                                    </td>
+                                    <td>{inventory.owner?.name || 'Unknown'}</td>
+                                    <td>{new Date(inventory.createdAt).toLocaleDateString()}</td>
+                                    <td>
                                         <div className='btn-group' role='group'>
                                             <Link to={`/inventories/${inventory.id}`} className='btn btn-sm btn-info me-2'>
                                                 View
@@ -95,8 +101,7 @@ const InventoryList = () => {
                                         </div>
                                     </td>
                                 </tr>
-                                )
-                            )}
+                            ))}
                         </tbody>
                     </table>
                 </div>

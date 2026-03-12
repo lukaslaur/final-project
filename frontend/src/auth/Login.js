@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useAuth} from '../context/AuthContext';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -69,6 +69,9 @@ const Login = () => {
               >
                 {loading ? 'Logging in...' : 'Login'}
               </button>
+              <Link to="/inventories" className="btn btn-outline-secondary w-100">
+                Browse Inventories (Guest)
+              </Link>
             </form>
 
             <div className="text-center mt-3">

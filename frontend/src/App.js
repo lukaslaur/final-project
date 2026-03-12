@@ -6,8 +6,8 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import InventoryList from './components/InventoryList';
 import InventoryForm from './components/InventoryForm';
-
-const InventoryDetail = () => <div>Inventory Detail (TBD)</div>;
+import EditInventory from './components/EditInventory';
+import InventoryDetail from './components/InventoryDetail';
 
 const PrivateRoute = ({children}) => {
   const {user} = useAuth();
@@ -41,19 +41,20 @@ function AppContent(){
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/inventories' element={
-        <PrivateRoute>
           <InventoryList/>
-        </PrivateRoute>
       }/>
       <Route path = '/inventories/new' element = {
         <PrivateRoute>
           <InventoryForm/>
         </PrivateRoute>
       }/>
-      <Route path = '/inventories/:id' element={
+      <Route path="/inventories/:id/edit" element={
         <PrivateRoute>
-          <InventoryDetail/>
+          <EditInventory />
         </PrivateRoute>
+      } />
+      <Route path = '/inventories/:id' element={
+          <InventoryDetail/>
       }/>
       <Route path = '/' element={
         <Navigate to='/inventories'/>

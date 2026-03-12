@@ -33,10 +33,10 @@ export const getInventory = (id) =>
     api.get(`/inventories/${id}`);
 
 export const createInventory = (data) =>
-    api.post('inventories', data);
+    api.post('/inventories', data);
 
 export const updateInventory = (id, data) =>
-    api.put(`inventories/${id}`, data);
+    api.put(`/inventories/${id}`, data);
 
 export const deleteInventory = (id) =>
     api.delete(`/inventories/${id}`);

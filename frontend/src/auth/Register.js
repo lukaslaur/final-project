@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useAuth} from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';   
+import { useNavigate, Link } from 'react-router-dom';   
 
 const Register = ()=>{
     const [name, setName] = useState('');
@@ -90,6 +90,9 @@ const Register = ()=>{
                             >
                                 {loading ? 'Registering...' : 'Register'}
                             </button>
+                            <Link to="/inventories" className="btn btn-outline-secondary w-100">
+                                Browse Inventories (Guest)
+                            </Link>
                         </form>
                         <div className='text-center mt-3'>
                             <a href='/login'>Already have an account? Login</a>
